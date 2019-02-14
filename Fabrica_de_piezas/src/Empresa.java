@@ -7,11 +7,6 @@ public class Empresa {
 
 	public static void main(String[] args) {
 
-		int a;
-		int b; 
-		int c;
-		
-		System.out.println("Hello World");
 	}
 
 }
