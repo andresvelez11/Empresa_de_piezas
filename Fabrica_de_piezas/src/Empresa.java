@@ -10,6 +10,8 @@ public class Empresa {
 		int a;
 		int b; 
 		int c;
+		
+		System.out.println("Hello World");
 	}
 
 }
