@@ -57,6 +57,9 @@ public class Empresa {
 	public static void main(String[] args) {
 
 		Empresa e = new Empresa();
+		e.crearCliente("p", "direccion", "correo", "formaDePago");
+		e.clientes[0].hacerSolicitud("e", 3, 45, "Mixta");
+		System.out.println(e.clientes[0].totalSolicitudes());
 
 
 

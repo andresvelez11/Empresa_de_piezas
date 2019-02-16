@@ -3,8 +3,8 @@ public abstract class Pieza {
 
 	protected String codigo, descripcion;
 	protected double peso;
-	
-	
+
+
 
 	public double getPeso() {
 		return peso;
@@ -19,5 +19,15 @@ public abstract class Pieza {
 	}
 
 	abstract public double costo();
+
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
+	}
+
+	public String getCodigo() {
+		return codigo;
+	}
+
+
 
 }

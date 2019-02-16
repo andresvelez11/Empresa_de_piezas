@@ -45,7 +45,7 @@ public class Cliente {
 	public void setCorreo(String correo) {
 		this.correo = correo;
 	}
-	
+
 	public boolean isVip() {
 		return vip;
 	}
@@ -54,13 +54,22 @@ public class Cliente {
 		this.vip = vip;
 	}
 
-	public void hacerSolicitud(String fecha, int cantidad, int peso) {
+	public void hacerSolicitud(String fecha, int cantidad, int peso,String codPieza) {
 		Solicitud solicitud = new Solicitud(fecha, cantidad);
 		solicitud.getPieza().setPeso(peso); 
-		
+		solicitud.getPieza().setCodigo(codPieza);
+		Pieza p;
+		if(solicitud.getPieza().getCodigo().compareTo("Metalica")==0)
+			p =new PiezaMetalica();
+		else if (solicitud.getPieza().getCodigo().compareTo("Plastica")==0)
+			p=new PiezaPlastica();
+		else 
+			p= new PiezaMixta();
+
+		double costoSolicitud=p.costo()*cantidad;
 		//Mando el peso pero falta que tipo de pieza
 		//El costo se calcula con el peso y el tipo de pieza
-		
+
 		solicitud.setCodigoSolicitud(generarCodigo(nombre));
 		if (solicitudes[0] == null) {
 			solicitudes[0] = solicitud;
@@ -90,7 +99,7 @@ public class Cliente {
 		return (i<solicitudes.length)?i:-1;
 
 	}
-	
+
 	public double totalSolicitudes() { //Suma el costo de todas las solicitudes del cliente
 
 		double total=0;
@@ -99,7 +108,6 @@ public class Cliente {
 		}
 		return total;
 	}
-
 
 
 

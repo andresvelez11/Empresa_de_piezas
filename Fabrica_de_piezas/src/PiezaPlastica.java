@@ -5,5 +5,7 @@ public class PiezaPlastica extends Pieza {
 		
 		return 1.3 * super.peso + 30;
 	}
-	
+
+
+
 }
