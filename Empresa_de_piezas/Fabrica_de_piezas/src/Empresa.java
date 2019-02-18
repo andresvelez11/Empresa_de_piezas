@@ -5,6 +5,7 @@ public class Empresa {
 	private String direcccion;
 	private Cliente clientes[] = new Cliente[1];
 	private Pieza piezas[];
+	int contadorPiezas = 0;
 
 	public void crearCliente(String nombre , String direccion, String correo, String formaDePago) {
 		Cliente cliente = new Cliente(nombre , direccion, correo, formaDePago);
@@ -71,6 +72,12 @@ public class Empresa {
 		}
 	}
 	
+	public String generarCodigo(String nom) {
+		String cod = nom.substring(0, 3) + Integer.toString(contadorPiezas);
+		contadorPiezas+=1;
+		return cod;
+	}
+	
 	public static void main(String[] args) {
 
 		Empresa e = new Empresa();
@@ -78,6 +85,7 @@ public class Empresa {
 		e.hacerSolicitud("Andres","Febrero", 50, 80, "Metalica");
 		e.hacerSolicitud("Andres","Febrero", 50, 80, "Plastica");
 		e.hacerSolicitud("Andres","Febrero", 50, 80, "Mixta");
+		
 		System.out.println(e.clientes[0].getNombre());
 		System.out.println(e.clientes[0].getSolicitudes()[0].getCodigoSolicitud());
 		System.out.println(e.clientes[0].getSolicitudes()[1].getCodigoSolicitud());
