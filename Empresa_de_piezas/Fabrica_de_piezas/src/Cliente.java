@@ -64,30 +64,6 @@ public class Cliente {
 		return vip;
 	}
 
-	public void hacerSolicitud(String fecha, int cantidad, double peso, String codPieza) {
-		Solicitud solicitud = new Solicitud(fecha, cantidad, peso, codPieza);
-		solicitud.setCodigoSolicitud(generarCodigo(nombre));
-		
-		if (solicitud.getPieza().getCodPieza().compareTo("Metalica") == 0 ) {
-			solicitud.setCosto(2.8 * peso + 56);
-		} else if (solicitud.getPieza().getCodPieza().compareTo("Plastica") == 0 ) {
-			solicitud.setCosto(1.3 * peso + 30);
-		} else if (solicitud.getPieza().getCodPieza().compareTo("Mixta") == 0 ) {
-			solicitud.setCosto((2.8 * peso + 56) + (1.3 * peso + 30));
-		} else {
-			
-		}
-		
-		if (solicitudes[0] == null) {
-			solicitudes[0] = solicitud; 
-		} else {
-			Solicitud[] newSolicitud = new Solicitud[solicitudes.length + 1];
-			System.arraycopy(solicitudes, 0, newSolicitud, 0, solicitudes.length);
-			newSolicitud[newSolicitud.length - 1] = solicitud;
-			this.solicitudes = newSolicitud;
-		}
-	}
-
 	public void quitarSolicitud(String codigoSolicitud) {
 		int flag = 0;
 		Solicitud[] newSolicitud = new Solicitud[solicitudes.length-1];

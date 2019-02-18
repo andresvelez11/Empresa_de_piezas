@@ -1,8 +1,8 @@
 
-public class Pieza {
+public abstract class Pieza {
 
 	private String codPieza;
-	private double peso;
+	protected double peso;
 	
 	public String getCodPieza() {
 		return codPieza;
